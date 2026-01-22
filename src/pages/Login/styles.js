@@ -9,7 +9,7 @@ export const Container = styled.div`
 `;
 
 export const LeftContainer = styled.div`
-  background: url('${BackgroundLogin}');
+  background: url("${BackgroundLogin}");
   background-size: cover;
   background-position: center;
 
@@ -43,7 +43,6 @@ export const RightContainer = styled.div`
     a {
       color: #fff;
       text-decoration: underline;
-      
     }
   }
 `;
@@ -54,7 +53,7 @@ export const InputContainer = styled.div`
   gap: 5px;
   width: 100%;
 
-  input{
+  input {
     width: 100%;
     border: none;
     height: 52px;
@@ -66,6 +65,14 @@ export const InputContainer = styled.div`
     font-size: 18px;
     font-weight: 600;
     color: #fff;
+  }
+
+  p {
+    font-size: 14px;
+    line-height: 80%;
+    font-weight: 600;
+    color: #cf3057;
+    height: 10px;
   }
 `;
 
@@ -87,7 +94,7 @@ export const Title = styled.h2`
 
   span {
     color: #9758a6;
-    
+    font-family: "Road Rage", sans-serif;
   }
 `;
 
