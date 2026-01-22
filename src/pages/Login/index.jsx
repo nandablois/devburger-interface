@@ -8,12 +8,17 @@ import {
   LeftContainer,
   RightContainer,
   Title,
+  Link,
 } from "./styles";
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { api } from "../../services/api";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
+  const navigate = useNavigate();
+
   const schema = yup
     .object({
       email: yup
@@ -36,11 +41,24 @@ export default function Login() {
   });
 
   const onSubmit = async (data) => {
-    const response = await api.post("/sessions", {
-      email: data.email,
-      password: data.password,
-    });
-
+    const response = await toast.promise(
+      api.post("/sessions", {
+        email: data.email,
+        password: data.password,
+      }),
+      {
+        pending: "Verifique seus dados",
+        success: {
+          render() {
+            setTimeout(() => {
+              navigate("/");
+            }, 2000);
+            return "Seja bem-vindo(a)!";
+          },
+        },
+        error: "Email ou senha incorretos  🤯",
+      }
+    );
     console.log(response);
   };
 
@@ -74,7 +92,7 @@ export default function Login() {
         </Form>
 
         <p>
-          Não possui conta? <a href="#">Clique aqui.</a>
+          Não possui conta? <Link to="/cadastro">Clique aqui.</Link>
         </p>
       </RightContainer>
     </Container>
