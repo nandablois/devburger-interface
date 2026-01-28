@@ -30,7 +30,7 @@ export const Title = styled.h2`
 `;
 
 export const ContainerItems = styled.div`
-  background: url("${(props) => props.imageUrl}"), no-repeat;
+  background: url("${(props) => props.$imageurl}"), no-repeat;
   background-position: center;
   background-size: cover;
   border-radius: 20px;

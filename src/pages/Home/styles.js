@@ -20,12 +20,11 @@ export const Banner = styled.div`
 `;
 
 export const Content = styled.div`
-  background: linear-gradient(
-      rgba(255, 255, 255, 0.5),
-      rgba(255, 255, 255, 0.5)
-    ),
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)),
     url("${Background}");
-    height: 500px;
 `;
 
-export const Container = styled.div``;
+export const Container = styled.div`
+  
+`;

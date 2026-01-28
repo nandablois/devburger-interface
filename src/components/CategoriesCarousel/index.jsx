@@ -45,7 +45,7 @@ export function CategoriesCarousel() {
         itemClass="carousel-item"
       >
         {categories.map((category) => (
-          <ContainerItems key={category.id} imageUrl={category.url}>
+          <ContainerItems key={category.id} $imageurl={category.url}>
             <p>{category.name}</p>
           </ContainerItems>
         ))}
