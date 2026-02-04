@@ -15,9 +15,11 @@ import { useForm } from "react-hook-form";
 import { api } from "../../services/api";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import { userUser } from "../../hooks/UseContext";
 
 export default function Login() {
   const navigate = useNavigate();
+  const { putUserData } = userUser()
 
   const schema = yup
     .object({
@@ -41,9 +43,7 @@ export default function Login() {
   });
 
   const onSubmit = async (data) => {
-    const {
-      data: { token },
-    } = await toast.promise(
+    const { data: userData } = await toast.promise(
       api.post("/sessions", {
         email: data.email,
         password: data.password,
@@ -61,7 +61,8 @@ export default function Login() {
         error: "Email ou senha incorretos  🤯",
       }
     );
-    localStorage.setItem('token', token);
+    putUserData(userData)
+    // localStorage.setItem("token", token);
   };
 
   return (
