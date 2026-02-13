@@ -37,13 +37,14 @@ export const Title = styled.div`
   position: relative;
 
   &::after {
+    content: "";
     position: absolute;
     left: calc(50% + -28px);
     bottom: 0;
-    content: "";
     width: 56px;
     height: 4px;
     background-color: #9758a6;
+    
   }
 `;
 

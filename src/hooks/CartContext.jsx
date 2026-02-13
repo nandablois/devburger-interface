@@ -11,31 +11,35 @@ export const CartProvider = ({ children }) => {
     let newProductsInCart = [];
 
     if (cartIndex >= 0) {
-      newProductsInCart = cartProducts;
+      newProductsInCart = [...cartProducts];
+
       newProductsInCart[cartIndex].quantity =
         newProductsInCart[cartIndex].quantity + 1;
+
+      setCartProducts(newProductsInCart);
     } else {
       product.quantity = 1;
       newProductsInCart = [...cartProducts, product];
       setCartProducts(newProductsInCart);
-    }
-    updateLocalStorage(newCart);
+    } 
+    updateLocalStorage(newProductsInCart);
   };
 
- 
+  const clearCart = () => {
+    setCartProducts([]);
 
-  const clearCart = () => {};
+    updateLocalStorage([]);
+  };
 
   const deleteProduct = (productId) => {
     const newCart = cartProducts.filter((prd) => prd.id !== productId);
     setCartProducts(newCart);
-
     updateLocalStorage(newCart);
   };
 
   const increaseProduct = (productId) => {
     const newCart = cartProducts.map((prd) => {
-      return prod.id === productId
+      return prd.id === productId
         ? { ...prd, quantity: prd.quantity + 1 }
         : prd;
     });
@@ -50,28 +54,28 @@ export const CartProvider = ({ children }) => {
     if (cartProducts[cartIndex].quantity > 1) {
       const newCart = cartProducts.map((prd) => {
         return prd.id === productId
-          ? { ...prd, quantity: prd.quantity + 1 }
+          ? { ...prd, quantity: prd.quantity - 1 }
           : prd;
       });
 
-      setCartProducts(newCart);
       updateLocalStorage(newCart);
+      setCartProducts(newCart);
     } else {
       deleteProduct(productId);
     }
   };
 
-   const updateLocalStorage = (products) => {
+  const updateLocalStorage = (products) => {
     localStorage.setItem("devburguer:cartInfo", JSON.stringify(products));
   };
 
   useEffect(() => {
-    const clientCartData = localStorage.getItem('devburguer:cartInfo');
+    const clientCartData = localStorage.getItem("devburguer:cartInfo");
 
-    if(clientCartData){
-      setCartProducts(JSON.parse(clientCartData))
+    if (clientCartData) {
+      setCartProducts(JSON.parse(clientCartData));
     }
-  }, [])
+  }, []);
 
   return (
     <CartContext.Provider
@@ -79,15 +83,16 @@ export const CartProvider = ({ children }) => {
         cartProducts,
         putProductInCart,
         clearCart,
-        deleteProduct,
-        increaseProduct,
         decreaseProduct,
+        increaseProduct,
+        deleteProduct,
       }}
     >
       {children}
     </CartContext.Provider>
   );
 };
+
 export const useCart = () => {
   const context = useContext(CartContext);
 

@@ -16,7 +16,7 @@ import { api } from "../../services/api";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 
-export default function Register() {
+export function Register() {
   const navigate = useNavigate();
 
   const schema = yup

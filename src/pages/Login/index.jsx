@@ -17,7 +17,7 @@ import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { userUser } from "../../hooks/UserContext";
 
-export default function Login() {
+export function Login() {
   const navigate = useNavigate();
   const { putUserData } = userUser()
 
