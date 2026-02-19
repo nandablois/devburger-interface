@@ -5,13 +5,17 @@ import { RouterProvider } from "react-router-dom";
 import GlobalStyles from "./styles/globalStyles";
 import { router } from "./routes";
 import AppProvider from "./hooks";
+import { Elements } from "@stripe/react-stripe-js";
+import stripePromise from "./config/stripeConfig";
 
 createRoot(document.getElementById("root")).render(
   <>
     <GlobalStyles />
     <AppProvider>
-      <StrictMode>
-        <RouterProvider router={router} />
+      <StrictMode>  
+        <Elements stripe={stripePromise}>
+          <RouterProvider router={router} />
+        </Elements>
         <ToastContainer autoClose={2000} theme="dark" />
       </StrictMode>
     </AppProvider>
