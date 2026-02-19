@@ -7,6 +7,7 @@ export const CartProvider = ({ children }) => {
 
   const putProductInCart = (product) => {
     const cartIndex = cartProducts.findIndex((prd) => prd.id === product.id);
+    console.log("PRODUTO ANTES DE ENTRAR NO CARRINHO:", product);
 
     let newProductsInCart = [];
 
@@ -21,7 +22,7 @@ export const CartProvider = ({ children }) => {
       product.quantity = 1;
       newProductsInCart = [...cartProducts, product];
       setCartProducts(newProductsInCart);
-    } 
+    }
     updateLocalStorage(newProductsInCart);
   };
 

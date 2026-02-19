@@ -1,5 +1,5 @@
 import Logo from "../../assets/logo.svg";
-import { CartItems } from "../../components/CartItems";
+import { CartResume, CartItems } from "../../components";
 import { Banner, Container, Content, Title } from "./styles";
 
 export function Cart() {
@@ -8,13 +8,11 @@ export function Cart() {
       <Banner>
         <img src={Logo} alt="logo-devburguer" />
       </Banner>
-      <Title>
-        Chekout - Pedido
-        <Content>
-          <CartItems />
-          {/* <CartResume />  */}
-        </Content>
-      </Title>
+      <Title>Chekout - Pedido</Title>
+      <Content>
+        <CartItems />
+        <CartResume />
+      </Content>
     </Container>
   );
 }

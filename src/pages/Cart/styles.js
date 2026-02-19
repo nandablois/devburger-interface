@@ -11,7 +11,7 @@ export const Container = styled.div`
 `;
 
 export const Banner = styled.div`
-  background: url("${Texture}");
+  background: url("${Texture}") no-repeat;
   background-color: #1f1f1f;
   background-size: cover;
   background-position: center;
@@ -23,7 +23,7 @@ export const Banner = styled.div`
   height: 180px;
 
   img {
-    height: 150px;
+    height: 130px;
   }
 `;
 
@@ -37,13 +37,13 @@ export const Title = styled.div`
   position: relative;
 
   &::after {
-    content: "";
     position: absolute;
-    left: calc(50% + -28px);
-    bottom: 0;
-    width: 56px;
-    height: 4px;
-    background-color: #9758a6;
+left: calc(50% + -28px);
+bottom: 0;
+content: '';
+width: 56px;
+height: 4px;
+background-color: #9758a6;
     
   }
 `;
@@ -51,8 +51,9 @@ export const Title = styled.div`
 export const Content = styled.div`
   display: grid;
   grid-template-columns: 1fr 20%;
-  gap: 20px;
+  gap: 40px;
   width: 100%;
   max-width: 1280px;
+  padding: 40px;
   margin: 0 auto;
 `;
