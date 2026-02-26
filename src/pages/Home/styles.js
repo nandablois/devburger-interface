@@ -10,9 +10,9 @@ export const Banner = styled.div`
   height: 350px;
 
   h1 {
-    font-family: "Road Rage", sans-serif;
+    font-family: ${(props) => props.theme.roadRageFont};
     font-size: 80px;
-    color: #fff;
+    color: ${(props) => props.theme.white};
     position: absolute;
     right: 20%;
     top: 10%;
@@ -25,6 +25,4 @@ export const Content = styled.div`
     url("${Background}");
 `;
 
-export const Container = styled.div`
-  
-`;
+export const Container = styled.div``;

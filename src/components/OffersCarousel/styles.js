@@ -7,7 +7,7 @@ export const Container = styled.div`
 
   overflow-x: hidden;
 
-  .react-multi-carousel{
+  .react-multi-carousel {
     overflow: visible;
   }
 
@@ -18,7 +18,7 @@ export const Container = styled.div`
 export const Title = styled.h2`
   font-size: 32px;
   font-weight: 800;
-  color: #61a120;
+  color: ${(props) => props.theme.green};
   padding-bottom: 12px;
   position: relative;
   text-align: center;
@@ -29,13 +29,9 @@ export const Title = styled.h2`
     position: absolute;
     width: 56px;
     height: 4px;
-    background-color: #61a120;
+    background-color: ${(props) => props.theme.green};
     position: absolute;
     bottom: 0;
     left: calc(50% - 28px);
   }
 `;
-
-
-
-

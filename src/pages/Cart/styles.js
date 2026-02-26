@@ -12,7 +12,7 @@ export const Container = styled.div`
 
 export const Banner = styled.div`
   background: url("${Texture}") no-repeat;
-  background-color: #1f1f1f;
+  background-color: ${(props) => props.theme.mainBlack};
   background-size: cover;
   background-position: center;
   display: flex;
@@ -32,19 +32,18 @@ export const Title = styled.div`
   font-weight: 600;
   padding: 20px;
   padding-bottom: 12px;
-  color: #61a120;
+  color: ${(props) => props.theme.green};
   text-align: center;
   position: relative;
 
   &::after {
     position: absolute;
-left: calc(50% + -28px);
-bottom: 0;
-content: '';
-width: 56px;
-height: 4px;
-background-color: #9758a6;
-    
+    left: calc(50% + -28px);
+    bottom: 0;
+    content: "";
+    width: 56px;
+    height: 4px;
+    background-color: ${(props) => props.theme.purple};
   }
 `;
 

@@ -10,7 +10,6 @@ export const ButtonGroup = styled.div`
   align-items: center;
   gap: 12px;
 
-
   button {
     display: flex;
     align-items: center;
@@ -18,14 +17,14 @@ export const ButtonGroup = styled.div`
     height: 30px;
     width: 30px;
     border-radius: 4px;
-    background-color: #9758a6;
+    background-color: #${(props) => props.theme.purple};
     transition:
       all 0,
       4s;
     border: none;
 
     &:hover {
-      background-color: #6f357c;
+      background-color: ${(props) => props.theme.secondDarkPurple};
     }
   }
 `;
@@ -36,11 +35,11 @@ export const EmptyCart = styled.p`
 `;
 
 export const ProductTotalPrice = styled.p`
-    font-weight: bold;
-`
+  font-weight: bold;
+`;
 
-export const TrashImage = styled.img `
-    height: 20px;
-    width: 20px;
-    cursor: pointer;
-`
+export const TrashImage = styled.img`
+  height: 20px;
+  width: 20px;
+  cursor: pointer;
+`;

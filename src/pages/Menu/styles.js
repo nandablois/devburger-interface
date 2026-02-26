@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 export const Container = styled.div`
   width: 100%;
   min-height: 100vh;
-  background-color: #f0f0f0;
+  background-color: ${(props) => props.theme.secondWhite};
   height: 480px;
 
   background:
@@ -25,15 +25,15 @@ export const Banner = styled.div`
 
   background: url("${BannerHamburger}"), no-repeat;
   background-position: center;
-  background-color: #1f1f1f;
+  background-color: ${(props) => props.theme.mainBlack};
   background-size: cover;
 
   h1 {
-    font-family: "Road Rage", sans-serif;
+    font-family: ${(props) => props.theme.roadRageFont};
     font-size: 80px;
     line-height: 65px;
     position: absolute;
-    color: #fff;
+    color: ${(props) => props.theme.white};
 
     right: 20%;
     top: 30%;
@@ -56,12 +56,13 @@ export const CategoryButton = styled(Link)`
   text-decoration: none;
   cursor: pointer;
   background: none;
-  color:  ${(props) => (props.$isActiveCategory ? "#9758a6" : "#3d3a3d")} ;
+  color: ${(props) =>
+    props.$isActiveCategory ? `${(props) => props.theme.purple}` : "#3d3a3d"};
   font-weight: 500;
   line-height: 20px;
   border: none;
-  border-bottom: ${(props) => props.$isActiveCategory && "3px solid #9758a6"}  ;
- 
+  border-bottom: ${(props) =>
+    props.$isActiveCategory && `3px solid ${(props) => props.theme.purple}`};
 `;
 
 export const ProductsContainer = styled.div`
