@@ -1,9 +1,9 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { ToastContainer } from "react-toastify";
-import { RouterProvider } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 import GlobalStyles from "./styles/globalStyles";
-import { router } from "./routes";
+import { Router } from "./routes";
 import AppProvider from "./hooks";
 import { Elements } from "@stripe/react-stripe-js";
 import stripePromise from "./config/stripeConfig";
@@ -17,7 +17,9 @@ createRoot(document.getElementById("root")).render(
       <AppProvider>
         <StrictMode>
           <Elements stripe={stripePromise}>
-            <RouterProvider router={router} />
+            <BrowserRouter>
+              <Router />
+            </BrowserRouter>
           </Elements>
           <ToastContainer autoClose={2000} theme="dark" />
         </StrictMode>

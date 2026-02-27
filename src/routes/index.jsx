@@ -1,5 +1,4 @@
-import { createBrowserRouter } from "react-router-dom";
-import { Header, Footer } from "../components";
+import { Route, Routes } from "react-router-dom";
 import {
   Cart,
   Menu,
@@ -10,45 +9,22 @@ import {
   CompletePayment,
 } from "../pages";
 
-export const router = createBrowserRouter([
-  {
-    path: "/",
-    element: (
-      <>
-        <Header />
-        <Home />
-        <Footer />
-      </>
-    ),
-  },
-  {
-    path: "/login",
-    element: <Login />,
-  },
-  {
-    path: "/cadastro",
-    element: <Register />,
-  },
-  {
-    path: "/cardapio",
-    element: (
-      <>
-        <Header />
-        <Menu />,
-      </>
-    ),
-  },
+import { UserLaytout } from "../layouts/UserLayout";
 
-  {
-    path: "/carrinho",
-    element: <Cart />,
-  },
-  {
-    path: "/checkout",
-    element: <Checkout />,
-  },
-  {
-    path: "/complete",
-    element: <CompletePayment />,
-  },
-]);
+export function Router() {
+  return (
+    <Routes>
+      <Route path="/" element={<UserLaytout />}>
+        <Route path="/" element={<Home />} />
+        <Route path="/cardapio" element={<Menu />} />
+        <Route path="/carrinho" element={<Cart />} />
+        <Route path="/checkout" element={<Checkout />} />
+        <Route path="/checkout" element={<CompletePayment />} />
+      </Route>
+
+      <Route path="/login" element={<Login />} />
+      <Route path="/cadastro" element={<Register />} />
+    </Routes>
+  );
+}
+
