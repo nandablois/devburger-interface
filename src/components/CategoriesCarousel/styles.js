@@ -54,6 +54,6 @@ export const CategoryButton = styled(Link)`
   text-decoration: none;
 
   &:hover {
-    background-color: #${(props) => props.theme.purple};
+    background-color: ${(props) => props.theme.purple};
   }
 `;

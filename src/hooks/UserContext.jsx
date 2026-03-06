@@ -36,11 +36,11 @@ export const UserProvider = ({ children }) => {
   );
 };
 
-export const userUser = () => {
+export const useUser = () => {
   const context = useContext(UserContext);
 
   if (!context) {
-    throw new Error("userUser must be a valid context");
+    throw new Error("useUser must be a valid context");
   }
 
   return context;

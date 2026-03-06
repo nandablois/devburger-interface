@@ -11,11 +11,11 @@ import {
 } from "./styles";
 import { UserIcon, ShoppingCartIcon } from "@phosphor-icons/react";
 import { useNavigate, useResolvedPath } from "react-router-dom";
-import { userUser } from "../../hooks/UserContext";
+import { useUser } from "../../hooks/UserContext";
 
 export function Header() {
   const navigate = useNavigate();
-  const { logout, userInfo } = userUser();
+  const { logout, userInfo } = useUser();
   const { pathname } = useResolvedPath();
 
   function logoutUser() {

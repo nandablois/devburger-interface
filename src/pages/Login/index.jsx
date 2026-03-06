@@ -15,11 +15,11 @@ import { useForm } from "react-hook-form";
 import { api } from "../../services/api";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
-import { userUser } from "../../hooks/UserContext";
+import { useUser } from "../../hooks/UserContext";
 
 export function Login() {
   const navigate = useNavigate();
-  const { putUserData } = userUser()
+  const { putUserData } = useUser();
 
   const schema = yup
     .object({
@@ -53,7 +53,11 @@ export function Login() {
         success: {
           render() {
             setTimeout(() => {
-              navigate("/");
+              if (userData?.admin) {
+                navigate("/admin/pedidos");
+              } else {
+                navigate("/");
+              }
             }, 2000);
             return "Seja bem-vindo(a)!";
           },
@@ -61,7 +65,7 @@ export function Login() {
         error: "Email ou senha incorretos  🤯",
       }
     );
-    putUserData(userData)
+    putUserData(userData);
     // localStorage.setItem("token", token);
   };
 
