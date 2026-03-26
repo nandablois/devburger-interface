@@ -19,7 +19,6 @@ export function Orders() {
       const { data } = await api.get("orders");
 
       setOrders(data);
-
     }
 
     loadOrders();
@@ -55,7 +54,12 @@ export function Orders() {
         </TableHead>
         <TableBody>
           {rows.map((row) => (
-            <Row key={row._id} row={row} />
+            <Row
+              key={row._id}
+              row={row}
+              orders={orders}
+              setOrders={setOrders}
+            />
           ))}
         </TableBody>
       </Table>
